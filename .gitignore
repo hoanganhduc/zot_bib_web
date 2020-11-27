@@ -6,3 +6,4 @@ zot.build
 .cache
 _build
 __pycache__
+*.log
