@@ -63,6 +63,8 @@ clipboard_js_path = "site/clipboard.min.js" #: URL to Clipboard.min.js on the se
 
 copy_button_path = "site/clippy.svg" #: URL to clippy.svg on the server.
 
+mathjax = False  #: If True, use MathJax.
+
 show_search_box = True #: Show a search box
 
 #: List of shortcuts.
@@ -80,6 +82,8 @@ file_link_button_label = "PDF"  #: Set to None for label specific to the documen
 omit_COinS = False #: If True, do not include COInS metadata
 smart_selections = True #: If True, prevent user from selecting/copying text that shouldn't be copied.
 
+custom_footer = None
+
 
 __all__ = ['titlestring', 'bib_style',
            'sort_criteria', 'show_top_section_headings',
@@ -87,7 +91,7 @@ __all__ = ['titlestring', 'bib_style',
            'show_shortcuts', 'shortcut', 'show_links',
            'omit_COinS', 'smart_selections',
            'outputfile',  'write_full_html_header', 'stylesheet_url', 'jquery_path',
-           'show_copy_button', 'clipboard_js_path', 'copy_button_path', 'show_search_box',
+           'show_copy_button', 'mathjax', 'custom_footer', 'clipboard_js_path', 'copy_button_path', 'show_search_box',
            'content_filter',  'no_cache',
            'language_code', 'sortkeyname_order', 'link_translations']
 
@@ -518,7 +522,21 @@ def generate_base_html():
 
         else:
             warning("show_search_box set, but jquery_path, clipboard_js_path or copy_button_path undefined.")
-
+	
+    if mathjax:
+        script_html += """
+		<!-- MathJax -->
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+		<script type="text/x-mathjax-config">
+			MathJax.Hub.Config({
+			tex2jax: {
+			inlineMath: [['$','$'], ['\\\(','\\\)']],
+			processEscapes: true
+			}
+			});
+		</script>
+		"""
+	
     if smart_selections:
         jqready += """
         jQuery(".bib-venue-short").each(function(){$(this).attr('data-before', $(this).html()); $(this).html("")});
@@ -586,7 +604,7 @@ changeCSS();
 </script>"""
 
     credits_html = u'<div id="zbw_credits" style="text-align:right;">A <a href="https://github.com/davidswelt/zot_bib_web">zot_bib_web</a> bibliography.</div>'
-
+        
     script_html = cleanup_lines(script_html)
 
     html_header = u''
@@ -596,13 +614,19 @@ changeCSS();
             style_html = u"<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">" % stylesheet_url + style_html
         html_header += u'<!DOCTYPE html><html lang="%s"><head><meta charset="UTF-8"><title>' % language_code + titlestring + u'</title>' + style_html + u'</head><body>'
         html_header += u'<div class="bibliography">' + script_html
-        html_footer += credits_html + u'</div>'
+        if custom_footer:
+            html_footer += credits_html + custom_footer + u'</div>'
+        else:
+            html_footer += credits_html + u'</div>'
         if titlestring:
             html_header += '<h1 class="title">' + titlestring + "</h1>\n";
         html_footer += u'</body></html>'
     else:
         html_header += u'<div class="bibliography">' + style_html + script_html
-        html_footer += credits_html + u'</div>'
+        if custom_footer:
+            html_footer += credits_html + custom_footer + u'</div>'
+        else:
+            html_footer += credits_html + u'</div>'
 
     search_box = ""
 
@@ -1603,6 +1627,18 @@ def make_html(all_items, exclude={}, shorten=False):
             n = 'Doc'
         elif re.search(r'\.ps$', obj, re.IGNORECASE):
             n = 'PS'
+        elif re.search(r'\.mp4$', obj, re.IGNORECASE):
+            n = 'MP4'
+        elif re.search(r'\.pptx$', obj, re.IGNORECASE):
+            n = 'PPTX'
+        elif re.search(r'\.ppt$', obj, re.IGNORECASE):
+            n = 'PPT'
+        elif re.search(r'\.html$', obj, re.IGNORECASE):
+            n = 'HTML'
+        elif re.search(r'\.tar.gz$', obj, re.IGNORECASE):
+            n = 'TAR.GZ'
+        elif re.search(r'\.zip$', obj, re.IGNORECASE):
+            n = 'ZIP'
         else:
             n = default
         return n
