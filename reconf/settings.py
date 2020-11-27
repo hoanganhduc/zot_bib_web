@@ -102,9 +102,8 @@ show_copy_button = True
 clipboard_js_path = "site/clipboard.min.js"
 copy_button_path = "site/clippy.svg" # path to file on server
 
-show_links = ['file', 'bib', 'url']   # unconditionally show these items if they are available.
+show_links = ['bib', 'url', 'file']   # unconditionally show these items if they are available.
 
-#show_shortcuts = [shortcut('collection', sortBy='name')]
 show_shortcuts = [shortcut('year', [2021,2020,2019,2018,2017,2016,2015,2014,2013,2012,'-2011'])]
 show_shortcuts += ['type']
 

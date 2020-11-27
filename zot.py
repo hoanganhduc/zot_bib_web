@@ -612,7 +612,7 @@ changeCSS();
     if write_full_html_header:
         if stylesheet_url:
             style_html = u"<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">" % stylesheet_url + style_html
-        html_header += u'<!DOCTYPE html><html lang="%s"><head><meta charset="UTF-8"><title>' % language_code + titlestring + u'</title>' + style_html + u'</head><body>'
+        html_header += u'<!DOCTYPE html><html lang="%s"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' % language_code + titlestring + u'</title>' + style_html + u'</head><body>'
         html_header += u'<div class="bibliography">' + script_html
         if custom_footer:
             html_footer += credits_html + custom_footer + u'</div>'

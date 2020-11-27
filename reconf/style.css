@@ -1,25 +1,6 @@
-/* latin-ext */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v13/8qcEw_nrk_5HEcCpYdJu8BTbgVql8nDJpwnrE27mub0.woff2) format('woff2');
-  unicode-range: U+0100-024F, U+1E00-1EFF, U+20A0-20AB, U+20AD-20CF, U+2C60-2C7F, U+A720-A7FF;
-}
-/* latin */
-@font-face {
-  font-family: 'Lato';
-  font-style: normal;
-  font-weight: 400;
-  src: local('Lato Regular'), local('Lato-Regular'), url(http://fonts.gstatic.com/s/lato/v13/MDadn8DQ_3oT6kvnUq_2r_esZW2xOQ-xsNqO47m55DA.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2212, U+2215;
-}
-
 /* The bibliography */
 div.bibliography 
 {
-    font-family: Lato;
-       /* font-family:'Lato',Arial,Geneva, sans-serif; */
        font-weight:300;
        line-height:1.4em;
    }
@@ -31,19 +12,10 @@ div.bibliography
 
 /* Collection titles */
 div.bibliography h1, div.bibliography h2, div.bibliography h3, div.bibliography h4
-{
-    font-family:Century Gothic,Times New Roman,Optima,sans-serif;
-    font-weight:1000;
-    color:Gray;
-}
-div.bibliography h2
-{
-    border-bottom: Gray solid 2px;
-}
-#searchTermSectionTitle
-{
-    border-bottom: none;
-}
+   {
+       font-weight:bold;
+/*       color:Gray;*/
+   }
 
 /* Search term highlighted */
 #searchTermSectionTitle, #searchTermSectionTitle a {
@@ -55,13 +27,18 @@ div.bibliography h2
 div.bibliography div.collection { }
 div.bibliography div.collection div.collection { /* nested collection */ }
 
+/* The entire bibliographic item */
+div.bib-item {
+	border: 1px solid black;
+	padding: 10px;
+}
 div.short-bib-section {
     border: 1px solid black;
     padding: 10px;
     padding-top: 0;
 }
 div.full-bib-section div.bib-item {
-    margin-bottom:25px;
+    margin: 10px;
 }
 /* the short format (selected works) */
 div.short-bib-section div.bib-item {
@@ -83,75 +60,9 @@ div.short-bib-section .containertitle {
     font-style:italic;
 }
 
-/* The entire bibliographic item */
-div.bib-item {
-    display: block;
-    text-align:left;
-    vertical-align:top;
-    position:static;
-}
-
-/* The buttons for BIB, RIS, etc. */
-div.blinkitems {
-    display:inline-block;
-    text-align:left;
-    width:12%;
-    position:absolute;
-    left:20px;
-}
-div.blink  {
-    display:inline-block;
-}
-
-div.blinkitems .bibshowhide {
-    background: white;
-    border: 2px solid grey;
-    padding: 10px;
-    z-index: 5;
-    position: absolute;
-}
-
-.bib-item {
-    position:relative;
-}
-.bib-venue {
-    display:none;
-}
-div.bib-venue-short {
-    display:none !important;  /* not displaying it */
-    text-align:left;
-    max-width:15%;
-    position:absolute;
-    left:20px;
-    margin-top:-30px;
-    color:black;
-    padding:  0px 4px 0px 4px;
-    font-size: 80%;
-    font-variant: small-caps;
-    background:#DDDDFF;
-    
-    /* border: 1px solid white; */
-
-}
-
-div.bib-details{
-    text-align: left;
-    display:inline-block;
-    position:relative;
-    left:12%;
-    width:78%;
-}
-
-.bib-details .bib-extra {
+.bib-extra {
     display: inline;
     font-weight:bold;
-}
-
-/* The actual BibTeX record (when visible) */
-div.bib {
-    font-family:Menlo,Courier,monospaced;
-    color:brown;
-    white-space: pre;
 }
 
 /* Citation (when visible) */
@@ -159,21 +70,24 @@ div.cite {
     width: 600px;
 }
 
-.blinkitems, .bib-venue, .bib-venue-short {
+/* The actual BibTeX record (when visible) */
+div.bib {
+    font-family:Courier, monospaced;
+    color:brown;
+    padding-left:30px;
+    white-space: pre;
+    margin:20px 60px 60px 10px;
 }
 
 /* Text "bib", "abstract", and other buttons */
 .blinkitems .blink a {
-    /* font-variant: small-caps; */
     text-transform: uppercase;
-    font-family:Arial,sans-serif;
-    font-size:80%;
-    text-decoration: none;
+    text-decoration: underline;
     clear: both;
     padding:0;
-    margin:0;
+    margin:5px;
+       
 }
-
 /* the .blink p style is a hack because Wordpress seems to insert <p> at times. */
 .blink p {
     display:inline;
@@ -181,13 +95,15 @@ div.cite {
 
 div.full-bib-section .blink a {
     margin-bottom:-30px;
-    border: 1px solid #DDDDDD;
-    background-color: #EEEEEE;
-    padding:1px;
+    font-size:80%;
+    border: 1px solid #EEEEEE;
 }
 div.short-bib-section .blinkitems .blink a {
     display:inline-block; /* needed to make margin-top work (collapsed margins) */
-    margin-bottom:10px;
+    margin-bottom:0px;
+   
+    font-size:80%;
+    border: 1px solid #EEEEEE;
 }
 
 
@@ -195,7 +111,8 @@ div.short-bib-section .blinkitems .blink a {
 div.abstract {
     color:black;
     margin:20px 60px 60px 10px;
-    min-width: 450px;
+    padding:10px;
+    border:1px solid black;
 }
 
 /* Document titles */
@@ -233,16 +150,13 @@ span.doctitle {
     display:block;
 }
 
-/* Categories at top of the bibliography */
-
-/* Entire section */
 #bib-preamble {
     ___background-color:#DDDDDD;
     padding: 10px;
     margin: 10px;
 }
 
-/* Block of items of the same kind */
+/* Categories at top of the bibliography */
 .bib-cat {
     display: inline-block;
     list-style: none;
@@ -254,28 +168,44 @@ span.doctitle {
     min-width:15%;
 }
 
-/* Single category */
 .bib-cat li {
-    display: block;
+  display: inline;
+}
+.bib-cat li:after {
+  content: " | ";
+}
+.bib-cat li:last-child:after {
+    content: ""
 }
 
-#bib-cat-year {
-    max-width:20%;
-}
-#bib-cat-year li {
-    display:block; /* inline */ 
+#bib-preamble {
+    margin-left:50px;
 }
 
-#bib-cat-venue_short {
-    display:block;
-    margin-top:20px;
+#bib-cat-year:before, #bib-cat-type:before, #bib-cat-collection:before {
+    /* font-weight: bold; */
+    font-style: italic;
+    display:inline-block;
+    margin-left: -50px;
+    width: 50px;
+    padding: 0;
+    margin-right:0px;
 }
-#bib-cat-venue_short li {
-    display:inline;
-    margin-left: 10px;
+#bib-cat-year:before {
+    content: "Year";
+}
+#bib-cat-type:before {
+    content: "Type";
+}
+#bib-cat-collection:before {
+    content: "Topic";
+}
+#bib-cat-keyword:before {
+    content: "Keywords";
 }
 
 .bib-cat span.cat_count {
     font-style:italic;
     opacity: 0.5;
 }
+
