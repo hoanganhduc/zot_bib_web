@@ -83,6 +83,7 @@ omit_COinS = False #: If True, do not include COInS metadata
 smart_selections = True #: If True, prevent user from selecting/copying text that shouldn't be copied.
 
 custom_footer = None
+custom_message = None
 
 
 __all__ = ['titlestring', 'bib_style',
@@ -609,6 +610,7 @@ changeCSS();
 
     html_header = u''
     html_footer = u''
+
     if write_full_html_header:
         if stylesheet_url:
             style_html = u"<link rel=\"stylesheet\" type=\"text/css\" href=\"%s\">" % stylesheet_url + style_html
@@ -619,7 +621,9 @@ changeCSS();
         else:
             html_footer += u'<hr>' + credits_html + u'</div>'
         if titlestring:
-            html_header += '<h1 class="title">' + titlestring + "</h1>\n";
+            html_header += '<h1 class="title">' + titlestring + "</h1>\n"
+        if custom_message:
+            html_header += custom_message
         html_footer += u'</body></html>'
     else:
         html_header += u'<div class="bibliography">' + style_html + script_html
