@@ -96,7 +96,7 @@ jquery_path = "site/jquery.min.js"  # path to jquery file on the server - defaul
 
 number_bib_items = False  # show bibliographic items as numbered, ordered list
 
-custom_footer = "<div id=\"last_modified\" style=\"text-align:right;\">Last Modified: " + date.today().strftime("%B %d, %Y") + ".</div>"
+custom_footer = "<div id=\"last_modified\" style=\"float: left;\">Last Modified: " + date.today().strftime("%B %d, %Y") + ".</div>"
     
 show_copy_button = True
 clipboard_js_path = "site/clipboard.min.js"

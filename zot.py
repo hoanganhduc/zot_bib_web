@@ -603,7 +603,7 @@ function changeCSS() {
 changeCSS();
 </script>"""
 
-    credits_html = u'<div id="zbw_credits" style="text-align:right;">A <a href="https://github.com/davidswelt/zot_bib_web">zot_bib_web</a> bibliography.</div>'
+    credits_html = u'<div id="zbw_credits" style="float:right;">A <a href="https://github.com/davidswelt/zot_bib_web">zot_bib_web</a> bibliography.</div>'
         
     script_html = cleanup_lines(script_html)
 
@@ -615,18 +615,18 @@ changeCSS();
         html_header += u'<!DOCTYPE html><html lang="%s"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1"><title>' % language_code + titlestring + u'</title>' + style_html + u'</head><body>'
         html_header += u'<div class="bibliography">' + script_html
         if custom_footer:
-            html_footer += credits_html + custom_footer + u'</div>'
+            html_footer += u'<hr>' + credits_html + custom_footer + u'</div>'
         else:
-            html_footer += credits_html + u'</div>'
+            html_footer += u'<hr>' + credits_html + u'</div>'
         if titlestring:
             html_header += '<h1 class="title">' + titlestring + "</h1>\n";
         html_footer += u'</body></html>'
     else:
         html_header += u'<div class="bibliography">' + style_html + script_html
         if custom_footer:
-            html_footer += credits_html + custom_footer + u'</div>'
+            html_footer += u'<hr>' + credits_html + custom_footer + u'</div>'
         else:
-            html_footer += credits_html + u'</div>'
+            html_footer += u'<hr>' + credits_html + u'</div>'
 
     search_box = ""
 

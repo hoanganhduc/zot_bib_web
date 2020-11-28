@@ -29,8 +29,8 @@ div.bibliography div.collection div.collection { /* nested collection */ }
 
 /* The entire bibliographic item */
 div.bib-item {
-	border: 1px solid black;
-	padding: 10px;
+/*	border: 1px solid black;*/
+	padding: 5px;
 }
 div.short-bib-section {
     border: 1px solid black;
