@@ -98,7 +98,7 @@ number_bib_items = False  # show bibliographic items as numbered, ordered list
 
 custom_footer = "<div id=\"last_modified\" style=\"float: left;\">Last Modified: " + date.today().strftime("%B %d, %Y") + ".</div>"
 
-custom_message = u"<div class=\"custom_message\">This interactive web bibliography on <a href=\"http://www.ecei.tohoku.ac.jp/alg/core/\">Combinatorial Reconfiguration</a> is created from a Zotero collection of <a href=\"https://hoanganhduc.github.io/\">Duc A. Hoang</a> using a <a href=\"https://github.com/hoanganhduc/zotero\">forked version</a> of <a href=\"\">davidswelt/zot_bib_web</a> with slight modification.</div>"
+custom_message = u"<div class=\"custom_message\">This interactive web bibliography on <a href=\"http://www.ecei.tohoku.ac.jp/alg/core/\">Combinatorial Reconfiguration</a> is created from a Zotero collection of <a href=\"https://hoanganhduc.github.io/\">Duc A. Hoang</a> using a <a href=\"https://github.com/hoanganhduc/zotero\">forked version</a> of <a href=\"https://github.com/davidswelt/zot_bib_web\">davidswelt/zot_bib_web</a> with slight modification.</div>"
     
 show_copy_button = True
 clipboard_js_path = "site/clipboard.min.js"
