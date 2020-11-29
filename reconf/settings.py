@@ -69,7 +69,7 @@ file_output_path = "storage"
 # True means do not use cache;
 # retrieve items from Zotero database every time (slow)
 
-mathjax = True # use MathJax
+katex = True # use KaTeX
 file_link_button_label = None  #: Set to None for label specific to the document (link, PS, PDF)
 
 # Define labels for article types and their ordering

@@ -65,6 +65,8 @@ copy_button_path = "site/clippy.svg" #: URL to clippy.svg on the server.
 
 mathjax = False  #: If True, use MathJax.
 
+katex = False #: If True, use KaTeX.
+
 show_search_box = True #: Show a search box
 
 #: List of shortcuts.
@@ -92,7 +94,7 @@ __all__ = ['titlestring', 'bib_style',
            'show_shortcuts', 'shortcut', 'show_links',
            'omit_COinS', 'smart_selections',
            'outputfile',  'write_full_html_header', 'stylesheet_url', 'jquery_path',
-           'show_copy_button', 'mathjax', 'custom_footer', 'clipboard_js_path', 'copy_button_path', 'show_search_box',
+           'show_copy_button', 'mathjax', 'katex', 'custom_footer', 'clipboard_js_path', 'copy_button_path', 'show_search_box',
            'content_filter',  'no_cache',
            'language_code', 'sortkeyname_order', 'link_translations']
 
@@ -536,6 +538,29 @@ def generate_base_html():
 			}
 			});
 		</script>
+		<!-- End MathJax -->
+		"""
+		
+    if katex:
+        script_html += """
+		<!-- KaTeX -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css" integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3+Aro6EYUG4+cU+KJWu/X" crossorigin="anonymous">
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" integrity="sha384-g7c+Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI+sEnkvrMWph2EDg4" crossorigin="anonymous"></script>
+	<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js" integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC+Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa" crossorigin="anonymous"
+		onload="renderMathInElement(document.body);"></script>
+		<script>
+			document.addEventListener("DOMContentLoaded", function() {
+				renderMathInElement(document.body, {
+				    delimiters: [
+								{left: "$$", right: "$$", display: true},
+								{left: "$", right: "$", display: false},
+								{left: "\\\(", right: "\\\)", display: false},
+								{left: "\\\[", right: "\\\]", display: true}
+								]
+				});
+			});
+		</script>
+		<!-- End KaTeX -->
 		"""
 	
     if smart_selections:
