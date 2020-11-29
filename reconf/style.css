@@ -52,7 +52,7 @@ div.full-bib-section li {
 }
 div.short-bib-section li {
     margin-bottom:5px;
-    list-style-type: none;    Use this to turn off numbering
+    list-style-type: none;    /* Use this to turn off numbering */
 }
 
 /* the abbreviated conference or journal title in the short format section */

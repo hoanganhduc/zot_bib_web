@@ -37,7 +37,7 @@ from datetime import date
 # Thematic, by collection
 sort_criteria = ['-date','collection']   # First by collection, then type, then by date, latest first.
 # By type (journal, conference, etc.), then chronologically
-# sort_criteria = ['type','-date']   # we have date and type: First by date ("issued"), then by type.
+#sort_criteria = ['type','-date']   # we have date and type: First by date ("issued"), then by type.
 # By year, then with journal articles first,'-date'
 # sort_criteria = ['-year']   # we have date and type: First by date ("issued"), then by type.
 # By date only, newest first
@@ -48,8 +48,9 @@ sort_criteria = ['-date','collection']   # First by collection, then type, then 
 ###### Special settings
 
 
-bib_style =  'universidade-do-porto-faculdade-de-psicologia-e-de-ciencias-da-educacao'     # bibliography style format (e.g., 'apa' or 'mla') - Any valid CSL style in the Zotero style repository
-#bib_style =  'apa'
+#bib_style =  'apa'     # bibliography style format (e.g., 'apa' or 'mla') - Any valid CSL style in the Zotero style repository
+#bib_style =  'universidade-do-porto-faculdade-de-psicologia-e-de-ciencias-da-educacao'
+bib_style = 'computing-surveys'
 
 show_top_section_headings = 1  # show section headings for the first N sort criteria
 
@@ -94,7 +95,7 @@ sortkeyname_order['en']['type'] = [('journalArticle', 'Journal Articles'),
 show_search_box = True  # show a Javascript/JQuery based search box to filter pubs by keyword.  Must define jquery_path.
 jquery_path = "site/jquery.min.js"  # path to jquery file on the server - default: wordpress location
 
-number_bib_items = False  # show bibliographic items as numbered, ordered list
+number_bib_items = False  # not show bibliographic items as numbered, ordered list
 
 custom_footer = "<div id=\"last_modified\" style=\"float: left;\">Last Modified: " + date.today().strftime("%B %d, %Y") + ".</div>"
 
