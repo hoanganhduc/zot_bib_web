@@ -212,3 +212,6 @@ span.doctitle {
 .custom_message {
 	background-color: #d6d8d9;
 }
+
+/* KaTeX font size */
+.katex { font-size: 1em !important; }
